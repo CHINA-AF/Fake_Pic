@@ -13,7 +13,7 @@ def main(pic1, pic2, result_name):
     arr2 = np.array(pic2)
     height = min(arr1.shape[0], arr2.shape[0])
     width = min(arr1.shape[1], arr2.shape[1])
-    result = []
+    result = np.zeros((height,width,4),np.uint8)
     for h in range(0, height):
         row = []
         for w in range(0, width):
@@ -24,8 +24,7 @@ def main(pic1, pic2, result_name):
             if alpha > 1:
                 alpha = 1
             point = [g, g, g, alpha * 255]
-            row.append(point)
-        result.append(row)
+            result[h,w] = point
     result = np.array(result)
     result_pic = Image.fromarray(np.uint8(result))
     result_pic.save(result_name)
@@ -40,4 +39,4 @@ if __name__ == '__main__':
     # main('pic1.jpg','pic2.jpg','t.png')
     # t2 = time.time()
     # print(t2-t1)
-    # 8.406963586807251
+    # 8.604106903076172s
