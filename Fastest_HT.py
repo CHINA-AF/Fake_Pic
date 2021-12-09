@@ -30,9 +30,11 @@ if __name__ == '__main__':
     path1 = input('白色背景图片：')
     path2 = input('黑色背景图片：')
     path3 = input('输出文件名：')
+    if '.png' not in path3:
+        path3 += '.png'
     t1 = time.time()
     main(path1,path2,path3)
     # main('pic1.jpg', 'pic2.jpg', 't.png')
     t2 = time.time()
-    print('\n输出完成！耗时：' + str(t2 - t1))
+    print('\n输出完成！耗时 {:.2f} 秒'.format(t2-t1))
     # 8.604106903076172s
