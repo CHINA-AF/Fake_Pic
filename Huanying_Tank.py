@@ -50,5 +50,5 @@ if __name__ == '__main__':
     t1 = time.time()
     main('pic1.jpg', 'pic2.jpg', 't.png')
     t2 = time.time()
-    print(t2 - t1)
+    print('\n输出完成！耗时：'+str(t2 - t1))
     # 8.604106903076172s
