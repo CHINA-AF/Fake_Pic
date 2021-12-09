@@ -13,9 +13,8 @@ def process_bar(percent, total_length=15):
     :param total_length: 进度条长度
     :return:
     """
-    bar = '正在加载：'+ '■' * int(percent * total_length) + '□' * (total_length - int(percent * total_length))
+    bar = '正在加载：' + '■' * int(percent * total_length) + '□' * (total_length - int(percent * total_length))
     print('\r%s %d%%' % (bar, percent * 100), end='')
-
 
 
 def main(pic1, pic2, result_name):
@@ -35,7 +34,7 @@ def main(pic1, pic2, result_name):
             g = int((b / alpha) * 255)
             if alpha > 1:
                 alpha = 1
-            point = [g,  alpha * 255]
+            point = [g, alpha * 255]
             result[h, w] = point
     result = np.array(result)
     result_pic = Image.fromarray(np.uint8(result))
@@ -44,12 +43,12 @@ def main(pic1, pic2, result_name):
 
 
 if __name__ == '__main__':
-    # path1 = input('白色背景图片：')
-    # path2 = input('黑色背景图片：')
-    # path3 = input('输出文件名：')
-    # main(path1,path2,path3)
+    path1 = input('白色背景图片：')
+    path2 = input('黑色背景图片：')
+    path3 = input('输出文件名：')
     t1 = time.time()
-    main('pic1.jpg', 'pic2.jpg', 't.png')
+    main(path1, path2, path3)
+    # main('pic1.jpg', 'pic2.jpg', 't.png')
     t2 = time.time()
-    print('\n输出完成！耗时：'+str(t2 - t1))
+    print('\n输出完成！耗时：' + str(t2 - t1))
     # 8.604106903076172s
